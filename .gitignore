@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Virtual environment
+venv/
+env/
+
+# Django migrations
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/*.pyd
+
+# VSCode and IDEs
+.vscode/
+.idea/
+
+# macOS and Linux
+.DS_Store
+
+# dotenv
+.env
+
+# Pytest cache
+.pytest_cache/
+
+# Static and media (optional)
+staticfiles/
+media/

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="row text-center">
+  <div class="col">
+    <div class="card shadow-sm p-3">
+      <h5>Total Clients</h5>
+      <p>{{ total_clients }}</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card shadow-sm p-3">
+      <h5>Total Programs</h5>
+      <p>{{ total_programs }}</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card shadow-sm p-3">
+      <h5>Total Enrollments</h5>
+      <p>{{ total_enrollments }}</p>
+    </div>
+  </div>
+</div>
+<hr>
+<a href="{% url 'create_program' %}" class="btn btn-outline-success">Create Program</a>
+<a href="{% url 'register_client' %}" class="btn btn-outline-primary">Register Client</a>
+<a href="{% url 'enroll_client' %}" class="btn btn-outline-info">Enroll Client</a>
+<a href="{% url 'search_clients' %}" class="btn btn-outline-secondary">Search Clients</a>
+{% endblock %}

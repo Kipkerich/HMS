@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Client Profile</h2>
+<ul class="list-group mb-3">
+  <li class="list-group-item"><strong>Name:</strong> {{ client.first_name }} {{ client.last_name }}</li>
+  <li class="list-group-item"><strong>DOB:</strong> {{ client.dob }}</li>
+  <li class="list-group-item"><strong>Contact:</strong> {{ client.contact }}</li>
+</ul>
+
+<h4>Enrolled Programs</h4>
+<ul class="list-group">
+  {% for enrollment in enrollments %}
+    <li class="list-group-item">
+      {{ enrollment.program.name }} - Enrolled on {{ enrollment.date_enrolled }}
+    </li>
+  {% empty %}
+    <li class="list-group-item">No programs enrolled.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
