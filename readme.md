@@ -19,7 +19,7 @@ It allows doctors (system users) to manage health programs, register clients, en
 ---
 
 ## Tech Stack 🛠
-- **Backend**: Django 4.x
+- **Backend**: Django 5.2
 - **Frontend**: Bootstrap 5
 - **Database**: SQLite (default, easy setup)
 - **Authentication**: Django built-in user system
