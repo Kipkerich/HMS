@@ -38,11 +38,19 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
+    total_clients = Client.objects.count()
+    total_programs = HealthPrograme.objects.count()
+    total_enrollments = Enrollment.objects.count()
+
+    return render(request, 'dashboard.html', {
+        'total_clients': total_clients,
+        'total_programs': total_programs,
+        'total_enrollments': total_enrollments,
+    })
     clients = Client.objects.all()
     programs = HealthPrograme.objects.all()
     enrollments = Enrollment.objects.all()
     return render(request, 'dashboard.html', {'clients': clients, 'programs': programs, 'enrollments': enrollments})
-
 @login_required
 def create_program(request):
     if request.method == 'POST':
@@ -80,12 +88,13 @@ def enroll_client(request):
 def search_clients(request):
     query = request.GET.get('q')
     clients = Client.objects.filter(first_name__icontains=query) if query else Client.objects.all()
-    return render(request, 'search_clients.html', {'clients': clients})
+    return render(request, 'search_client.html', {'clients': clients})
 
 @login_required
-def client_profile(request, client_id):
-    client = get_object_or_404(Client, pk=client_id)
-    return render(request, 'client_profile.html', {'client': client})
+def client_profile(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    enrollments = Enrollment.objects.filter(client=client)
+    return render(request, 'client_profile.html', {'client': client, 'enrollments': enrollments} )
 
 #API
 @api_view(['GET'])
