@@ -31,7 +31,7 @@ It allows doctors (system users) to manage health programs, register clients, en
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/healthsys.git
+   git clone https://github.com/Kipkerich/HMS.git
    cd healthsys
    ```
 
