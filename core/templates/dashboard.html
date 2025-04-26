@@ -1,30 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Dashboard</h2><br>
-<h2> Welcome, {{ user.username }}</h2>
-<div class="row text-center">
-  <div class="col">
-    <div class="card shadow-sm p-3">
-      <h5>Total Clients</h5>
-      <p>{{ total_clients }}</p>
+
+<h2 class="text-center text-primary mb-4">Dashboard</h2>
+<h4 class="text-center mb-5">Welcome, {{ user.username }} 👋</h4>
+
+<div class="row g-4 justify-content-center mb-5">
+
+  <div class="col-md-3">
+    <div class="card text-white bg-primary shadow-sm p-4 rounded-4">
+      <div class="card-body text-center">
+        <h5>Total Clients</h5>
+        <h2>{{ total_clients }}</h2>
+      </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card shadow-sm p-3">
-      <h5>Total Programs</h5>
-      <p>{{ total_programs }}</p>
+
+  <div class="col-md-3">
+    <div class="card text-dark bg-warning shadow-sm p-4 rounded-4">
+      <div class="card-body text-center">
+        <h5>Total Programs</h5>
+        <h2>{{ total_programs }}</h2>
+      </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card shadow-sm p-3">
-      <h5>Total Enrollments</h5>
-      <p>{{ total_enrollments }}</p>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-success shadow-sm p-4 rounded-4">
+      <div class="card-body text-center">
+        <h5>Total Enrollments</h5>
+        <h2>{{ total_enrollments }}</h2>
+      </div>
     </div>
   </div>
+
 </div>
-<hr>
-<a href="{% url 'create_program' %}" class="btn btn-outline-success">Create Program</a>
-<a href="{% url 'register_client' %}" class="btn btn-outline-primary">Register Client</a>
-<a href="{% url 'enroll_client' %}" class="btn btn-outline-info">Enroll Client</a>
-<a href="{% url 'search_clients' %}" class="btn btn-outline-secondary">Search Clients</a>
+
+<hr class="mb-5">
+
+<div class="text-center">
+  <a href="{% url 'create_program' %}" class="btn btn-success me-2 mb-2">Create Program</a>
+  <a href="{% url 'register_client' %}" class="btn btn-primary me-2 mb-2">Register Client</a>
+  <a href="{% url 'enroll_client' %}" class="btn btn-info me-2 mb-2">Enroll Client</a>
+  <a href="{% url 'search_clients' %}" class="btn btn-secondary mb-2">Search Clients</a>
+</div>
+
 {% endblock %}

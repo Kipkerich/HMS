@@ -60,7 +60,11 @@ def create_program(request):
             return redirect('dashboard')
     else:
         form = HealthProgrameForm()
-    return render(request, 'create_program.html', {'form': form})
+    
+    programs = HealthPrograme.objects.all()
+    return render(request, 'create_program.html', 
+                  {'form': form,
+                   'programs':programs,})
 
 @login_required
 def register_client(request):

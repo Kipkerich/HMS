@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Create Health Program</h2>
-<form method="post">
+
+<form method="post" class="mb-4">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit" class="btn btn-success">Save</button>
 </form>
+
+<hr>
+
+<h3>Existing Programs</h3>
+<ul class="list-group">
+  {% for program in programs %}
+    <li class="list-group-item">{{ program.name }}</li>
+  {% empty %}
+    <li class="list-group-item">No programs available yet.</li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
